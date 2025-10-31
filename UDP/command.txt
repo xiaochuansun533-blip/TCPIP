@@ -1,0 +1,10 @@
+# 进入 UDP 目录
+cd ~/code/c++/TCPIP/UDP
+
+# 编译服务器
+g++ -std=c++11 -O2 -Wall -I../include uecho_server.cpp ../include/util.cpp -o uecho_server
+./uecho_server 9090
+
+# 编译客户端
+g++ -std=c++11 -O2 -Wall -I../include uecho_client.cpp ../include/util.cpp -o uecho_client
+./uecho_client 127.0.0.1 9090
