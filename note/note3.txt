@@ -1,0 +1,53 @@
+IP  internet protocol  是为了收发网络数据而分配给计算机的值
+端口号是为了区分程序中创建的socket而分配给socket的序号  
+
+"向相应网络传输数据"实际上是构成网络的路由器或交换机传递数据，由接收数据的路由器根据数据中的主机地址向目标主机传递数据
+
+通过路由器和主机器完成外网与本网主机之间的数据交换
+
+端口号用于区分不同的socket
+
+操作系统参考端口号把数据传输给相应端口的套接字
+
+TCP socket之间不能重复端口号
+
+TCP  socket和UDP socket之间可以重复端口号
+
+参考POSIX(portable operating system interface,可移植操作系统接口)
+POSIX是为UNIX系列操作系统设立的标准
+
+struct in_addr
+{
+    in_addr_t s_addr;//32位IPv4地址
+}
+
+struct sockaddr_in
+{
+    sa_family_t sin_family;//地址族
+    uint16_t sin_port;//16位TCP/UDP端口号
+    struct in_addr sin_addr;//32位IP地址
+    char sin_zero[8];//不使用
+}
+
+struct sockaddr
+{
+    sa_family_t  sin_family;//地址族
+    char sa_data;//地址信息包含IP地址和端口号
+}
+
+
+CPU向内存保存数据的方式有2种，这意味着解析数据的方式也分为2种
+大端序：高位字节序存放到低位地址
+小端序：高位字节存放到高位地址
+
+在通过网络传输数据时约定统一方式，这种约定方式称为网络字节序，统一为大端序
+
+
+
+
+
+
+
+
+
+

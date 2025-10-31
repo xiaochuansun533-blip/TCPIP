@@ -1,0 +1,16 @@
+cd rs
+
+# 服务器
+g++ -std=c++17 -O2 -Wall -Wextra -I../include server/server.cpp ../include/util.cpp -o server/server
+
+# 客户端
+g++ -std=c++17 -O2 -Wall -Wextra -I../include client/client.cpp ../include/util.cpp -o client/client
+
+# 终端A
+./server/server 9090
+
+# 终端B
+./client/client 127.0.0.1 9090
+
+
+server/send.txt
