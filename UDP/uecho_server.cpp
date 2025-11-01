@@ -1,4 +1,3 @@
-// C++11 版 UDP 回声服务器（等价自你给的 C 代码）
 #include <iostream>
 #include <array>
 #include <cstdlib>

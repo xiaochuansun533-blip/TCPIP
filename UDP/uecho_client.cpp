@@ -38,13 +38,12 @@ int main(int argc, char* argv[]) {
         if (!std::getline(std::cin, line)) break;
         if (line == "q" || line == "Q") break;
 
-        // ✅ 发送给服务器地址（修复你原来 sendto 用错了 from_adr 的问题）
         ssize_t sent = sendto(sock, line.data(), line.size(), 0,
                               reinterpret_cast<sockaddr*>(&serv_adr),
                               static_cast<socklen_t>(sizeof(serv_adr)));
         if (sent < 0) error_handling("sendto() error");
 
-        adr_sz = sizeof(from_adr); // 每次接收前重置长度
+        adr_sz = sizeof(from_adr); 
         ssize_t n = recvfrom(sock, message.data(), message.size() - 1, 0,
                              reinterpret_cast<sockaddr*>(&from_adr), &adr_sz);
         if (n < 0) error_handling("recvfrom() error");
