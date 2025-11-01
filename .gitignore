@@ -6,3 +6,11 @@ UDP/uecho_client
 *.so
 /bin/
 /build/
+UDP/uecho_server
+UDP/uecho_client
+*.o
+*.out
+*.a
+*.so
+/bin/
+/build/
